@@ -1,0 +1,43 @@
+.10	// computes the square of the number in user memory
+	// for safety, store partial results in system memory
+2	// AC = read(500)
+500
+14	// X = AC --- number of sums remaining
+16	// Y = AC --- number that we are squaring
+
+.50	// loop: compute n^2 = n + n + n + ... + n (n terms)
+21	// done computing, jump to 75
+75
+9	// debug: output sums
+2
+26	// X--;
+15	// AC--;
+29	// syscall --- add Y to partial result
+22	// not done? loop back
+50
+
+.75	// loop finished
+9	// output result
+2
+50	// exit
+
+ 
+.500	// user memory
+13	// number to square
+0	// result
+
+.1000	// timer interrupt
+30	// do nothing
+
+.1500	// system call
+27 	// push old AC onto stack
+2	// load partial result into AC
+1750
+11	// add Y to it
+7  	// update partial result
+1750
+28 	// restore AC from stack
+30	// return
+
+.1750	// system memory, stores partial result
+0	// partial result
