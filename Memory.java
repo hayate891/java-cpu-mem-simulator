@@ -56,8 +56,6 @@ public class Memory {
 		File file = new File(inputFile);
 		Scanner scanner = new Scanner(file);
 		
-		System.out.println("aaaa");
-		
 		while (scanner.hasNextLine()) { // read the input file line by line
 			String line = scanner.nextLine().split(" ")[0]; // read everything up to a space
 

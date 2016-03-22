@@ -3,7 +3,7 @@ import java.io.*;
 
 public class CPU { 
 	private static int pc = 0;
-	private static int sp = 100; // user stack starts at 999
+	private static int sp = 1000;
 	private static int ir = 0;
 	private static int ac = 0;
 	private static int x, y;
@@ -21,7 +21,6 @@ public class CPU {
 	}
 	
 	public static void writeToMemory(int address, int data) {
-		System.out.println("writing " + data + " to address " + address);
 		output.println("w:" + address + "," + data);
 		output.flush();
 	}
@@ -35,7 +34,6 @@ public class CPU {
 		String response = input.nextLine();
 		
 		try {
-			System.out.println("read " + response + " from address " + address);
 			return Integer.parseInt(response);
 		} catch (Exception e) { 
 			// print the exception
@@ -230,7 +228,6 @@ public class CPU {
 				exitKernelMode();
 				break;
 			case 50:
-				System.out.println("exit???");
 				output.println("e:0,-1"); // tell memory to exit
 				output.flush();
 				System.exit(0); // exit cpu
